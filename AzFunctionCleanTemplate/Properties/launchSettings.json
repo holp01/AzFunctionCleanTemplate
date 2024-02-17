@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "AzFunctionCleanTemplate": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7274",
+      "launchBrowser": false
+    }
+  }
+}
