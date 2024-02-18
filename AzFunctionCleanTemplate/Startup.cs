@@ -2,15 +2,11 @@
 using AzFunctionCleanTemplate.Application.Interfaces;
 using AzFunctionCleanTemplate.Infrastructure;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 [assembly: FunctionsStartup(typeof(AzFunctionCleanTemplate.Function.Startup))]
 
@@ -36,6 +32,7 @@ namespace AzFunctionCleanTemplate.Function
 
             // Assuming 'ApplicationServiceReference' is a known type in the Application project
             var applicationAssembly = Assembly.GetAssembly(typeof(ApplicationServiceReference));
+            var infrastuctureAssembly = Assembly.GetAssembly(typeof(InfrastructureServiceReference));
 
             // Register all application services that implement IApplicationBase
             var appServices = applicationAssembly.GetTypes()
@@ -43,7 +40,7 @@ namespace AzFunctionCleanTemplate.Function
 
             foreach (var serviceType in appServices)
             {
-                var implementationType = applicationAssembly.GetTypes()
+                var implementationType = infrastuctureAssembly.GetTypes()
                                                             .FirstOrDefault(t => serviceType.IsAssignableFrom(t) && t.IsClass);
                 if (implementationType != null)
                 {

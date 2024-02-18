@@ -1,14 +1,10 @@
 ﻿using AutoMapper;
+using AzFunctionCleanTemplate.Application.Accounts;
 using AzFunctionCleanTemplate.Application.Accounts.Dtos;
 using AzFunctionCleanTemplate.Application.Interfaces;
 using AzFunctionCleanTemplate.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace AzFunctionCleanTemplate.Application.Accounts
+namespace AzFunctionCleanTemplate.Infrastructure.Accounts
 {
     public class AccountAppService : IAccountAppService
     {

@@ -32,7 +32,7 @@ namespace AzFunctionCleanTemplate.Function.Accounts
         }
 
         [FunctionName("GetById")]
-        [OpenApiOperation(operationId: "Run", tags: new[] { "id" })]
+        [OpenApiOperation(operationId: "GetById", tags: new[] { "id" })]
         [OpenApiSecurity("function_key", SecuritySchemeType.ApiKey, Name = "code", In = OpenApiSecurityLocationType.Query)]
         [OpenApiParameter(name: "id", In = ParameterLocation.Query, Required = true, Type = typeof(Guid), Description = "The **Id** parameter")]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "text/plain", bodyType: typeof(AccountDto), Description = "The OK response")]
